@@ -1,0 +1,50 @@
+
+    <div class="row">
+        <div class="col-md-8">
+
+            <div class="form-group">
+                <label for="titulo">Titulo da Publicação</label>
+                <input [(ngModel)]="post.titulo" name="titulo" id="titulo" type="text" class="form-control">
+            </div>
+
+             <ckeditor [(ngModel)]="post.descricao" data="Digite seu Artigo aqui !!!"></ckeditor>
+            
+           
+       
+        </div>
+        <div class="col-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="title-header">
+                        Opções da públicação
+                    </div>
+                </div>
+                <div class="card-body options-post">
+                    <div class="form-group options-post">
+                        
+                        <div class="form-group">
+                            <label for="imgPublicacao">Imagem da públicação</label>
+                            <input type="file" (change)="uploadImage($event)" [(ngModel)]="imgPost" name="imgPublicacao" class="form-control-file" id="imgPublicacao">
+                        
+                        </div>
+                     
+
+                            <img [src]="imgURL" alt="" class="img-fluid">
+
+
+                            <div class="btnOptions">
+                                <button (click)="createPost()" class="btn btn-sm btn-info">Publicar</button>
+                            </div>
+                           
+                            
+                    </div>
+                    
+                </div>  
+
+
+
+            </div>
+
+            <button routerLink=".." class="btn btn-secondary btn-sm">Voltar</button>
+        </div>
+    </div>

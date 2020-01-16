@@ -1,0 +1,19 @@
+.card-header{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 7px;
+    margin-left: 0;
+}
+
+.title-header{
+    margin-left: 15px;
+    padding: 5px;
+}
+
+table{
+    font-size: 10px;
+}
+
+td{
+    height: 10px;
+}
