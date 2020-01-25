@@ -18,7 +18,8 @@ export class NovapublicacaoComponent implements OnInit {
 
   post = {
     titulo: "",
-    descricao: ""
+    descricao: "",
+    path: ""
   }
   
   imgPost
@@ -48,6 +49,7 @@ export class NovapublicacaoComponent implements OnInit {
 
       this.postService.uploadImage(formData).subscribe((ret: File)=>{
         this.imgURL = environment.api + "/" + ret.pathImg
+        this.post.path = this.imgURL
       })
 
   }

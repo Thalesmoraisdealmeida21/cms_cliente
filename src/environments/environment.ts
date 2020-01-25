@@ -7,3 +7,6 @@ export const environment = {
   production: false,
   api: 'http://localhost:3000'
 };
+
+
+export const TOKEN_STORAGE = 'NOME_CHAVE_TOKEN';

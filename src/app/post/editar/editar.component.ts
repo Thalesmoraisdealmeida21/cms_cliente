@@ -23,7 +23,7 @@ export class EditarComponent implements OnInit {
       this.getPost();
     }
 
-  post;
+  post: Post;
   imgURL;
   
 
@@ -35,8 +35,9 @@ export class EditarComponent implements OnInit {
     this.routeActivate.params.subscribe((parametros)=>{
            this.idPost = parametros.idPost
 
-           this.postService.getPostById(this.idPost).subscribe((post)=>{
+           this.postService.getPostById(this.idPost).subscribe((post: Post)=>{
               this.post = post
+              this.imgURL = post.imgCapa
            })
 
     })
@@ -73,7 +74,9 @@ export class EditarComponent implements OnInit {
 
     this.postService.uploadImage(formData).subscribe((ret: File)=>{
       this.imgURL = environment.api + "/" + ret.pathImg
-    })
+      this.post.path = this.imgURL
+
+    })  
   }
 
 }

@@ -1,4 +1,4 @@
-<div *ngIf="statusLogin">
+asas
 <app-header
   [navbarBrandRouterLink]="['/dashboard']"
   [fixed]="true"
@@ -29,7 +29,7 @@
         <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Perfil</a>
         <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Configurações</a>
     
-        <a (click)="logout()"class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+        <a (click)="logout()"class="dropdown-item" href="#"><i class="fa fa-lock"></i> deslogar</a>
       </div>
     </li>
   </ul>
@@ -310,17 +310,6 @@
     </tabset>
   </app-aside>-->
 </div>
-<app-footer>
-  
-</app-footer>
 
-</div>
 
-<div *ngIf="!statusLogin" class="loginComponent">
-  <router-outlet></router-outlet>
-  <app-footer>
-  
-  </app-footer>
-  
-</div>
 
