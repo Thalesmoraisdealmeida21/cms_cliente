@@ -34,19 +34,24 @@ export class ListapublicacoesComponent implements OnInit {
   }
 
   deletePost(id){
-    this.postService.deletePost(id).subscribe((resposta: responseapi)=>{
-            if(resposta.status){
+    this.postService.deletePost(id).subscribe((resposta)=>{
+      
+      
+
+            if(resposta.status == 200){
               PNotify.success({
                 title: 'Publicação deletada com sucesso',
-                text: resposta.msg
+                
               });
+           
               this.loadingGetData();
-            } else {
-              PNotify.error({
-                title: 'Não foi possivel deletar a publicação',
-                text: resposta.msg
-              });
-            }
+            } 
+              if(resposta.status == 401){
+            console.log("sem autenticação")
+             
+              }
+            
+            
     })
   }
 

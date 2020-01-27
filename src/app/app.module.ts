@@ -22,6 +22,7 @@ import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 
+import { HttpsRequestInterceptor } from './Interceptors/interceptor.module'
 const APP_CONTAINERS = [
   DefaultLayoutComponent
 ];
@@ -36,7 +37,7 @@ import {
 
 // Import routing module
 import { AppRoutingModule } from './app.routing';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 // Import 3rd party components
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -48,6 +49,7 @@ import { ListapublicacoesComponent } from './post/listapublicacoes/listapublicac
 import { FormsModule } from '@angular/forms';
 import { EditarComponent } from './post/editar/editar.component';
 import { FormPostComponent } from './post/form-post/form-post.component';
+
 
 
 @NgModule({
@@ -80,7 +82,13 @@ import { FormPostComponent } from './post/form-post/form-post.component';
     EditarComponent,
     FormPostComponent
   ],
-  providers: [{
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpsRequestInterceptor,
+      multi: true
+    },
+    {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
   }],

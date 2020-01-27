@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment, TOKEN_STORAGE } from '../../environments/environment';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { User } from '../interfaces/user';
 import jwtDecode from './../../../node_modules/jwt-decode'
@@ -31,11 +31,12 @@ export class AuthService {
       const HttpOption = {
         headers: new HttpHeaders({
           "content-type": "application/json",
-          "authorization": token
+      
         })
       }
 
       this._autenticado.next(false);
+      localStorage.removeItem(TOKEN_STORAGE)
       return this.http.post(url, {}, HttpOption);
   }
 

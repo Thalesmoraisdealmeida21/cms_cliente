@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { environment } from '../../environments/environment';
+import { environment, TOKEN_STORAGE } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,17 +24,23 @@ export class PostService {
 
   deletePost(id){
     const url = environment.api + '/post/' + id;
-    return this.http.delete(url);
+    const headers = new HttpHeaders({
+        'content-type': 'application/json',
+         observe: 'response'
+      })
+    
+    
+    return this.http.delete(url, {headers: headers, observe: 'response'});
   }
 
   createPost(post){
     const url = environment.api + '/post'
     const httpOptions = {
-      headers: new HttpHeaders({
+       headers: new HttpHeaders({
         'content-type': 'application/json'
       })
     }
-    return this.http.post(url, post)
+    return this.http.post(url, post,httpOptions)
   }
 
   updatePost(post, id){
