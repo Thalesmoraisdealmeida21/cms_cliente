@@ -14,6 +14,7 @@ import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons';
 export class ListapublicacoesComponent implements OnInit {
 
   posts: Post[]
+  statusLoading: boolean = true;
 
   constructor(
     private postService: PostService
@@ -21,15 +22,19 @@ export class ListapublicacoesComponent implements OnInit {
     this.loadingGetData();
     PNotifyButtons; // Initiate the module. Important!
     PNotify.defaults.styling = 'bootstrap4'; // Bootstrap version 4
-
+    this.statusLoading = true;
    }
 
   ngOnInit() {
+    
   } 
 
   loadingGetData(){
+
     this.postService.getAllPosts().subscribe((posts: Post[])=>{
+   
       this.posts = posts
+      this.statusLoading = false;
     })
   }
 
