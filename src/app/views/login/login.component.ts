@@ -42,7 +42,9 @@ export class LoginComponent {
         
         localStorage.setItem(TOKEN_STORAGE, token.token)
         if(this.auth.genSession(token.token)){
-          this.router.navigateByUrl('/publicacoes')
+         
+            window.location.reload();
+        
         } else {
           PNotify.error({
             title: "Login",

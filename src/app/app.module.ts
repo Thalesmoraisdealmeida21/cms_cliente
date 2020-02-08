@@ -49,6 +49,14 @@ import { ListapublicacoesComponent } from './post/listapublicacoes/listapublicac
 import { FormsModule } from '@angular/forms';
 import { EditarComponent } from './post/editar/editar.component';
 import { FormPostComponent } from './post/form-post/form-post.component';
+import { ListacontatosComponent } from './contato/listacontatos/listacontatos.component';
+import { SimpleTableComponent } from './reusaveis/tables/simple-table/simple-table.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { AppTesteComponent } from './testes/app-teste/app-teste.component';
+import  { MatMenuModule } from '@angular/material/menu';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatPaginatorModule} from '@angular/material/paginator'
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -68,19 +76,31 @@ import { FormPostComponent } from './post/form-post/form-post.component';
     ChartsModule,
     CKEditorModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatSliderModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatProgressSpinnerModule,
+    MatPaginatorModule,
+    NgbModule
+    
   ],
   declarations: [
     AppComponent,
     ...APP_CONTAINERS,
-    P404Component,
-    P500Component,
-    LoginComponent,
     RegisterComponent,
     NovapublicacaoComponent,
     ListapublicacoesComponent,
     EditarComponent,
-    FormPostComponent
+    FormPostComponent,
+    P404Component,
+    P500Component,
+    LoginComponent,
+    ListacontatosComponent,
+    SimpleTableComponent,
+    AppTesteComponent,
+    
+   
   ],
   providers: [
     {

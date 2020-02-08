@@ -5,6 +5,7 @@ import PNotify from 'pnotify/dist/es/PNotify';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons';
 import { File } from '../../interfaces/file';
 import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { environment } from '../../../environments/environment';
 })
 export class NovapublicacaoComponent implements OnInit {
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private router: Router) { }
 
   post = {
     titulo: "",
@@ -33,10 +34,13 @@ export class NovapublicacaoComponent implements OnInit {
 
   createPost(){
       this.postService.createPost(this.post).subscribe((postCreated)=>{
+
             PNotify.success({
               title: "Sistema",
               text: "Artigo públicado com sucesso"
             })
+
+            this.router.navigateByUrl('publicacoes')
       })
 
   }

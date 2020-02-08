@@ -1,0 +1,82 @@
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Contato: {{contatoSelected.nome}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="form-group">
+          <label for="dateOfBirth">Nome do contato</label>
+          <div class="input-group">
+            <input id="name" readonly class="form-control" value="{{contatoSelected.nome}}" name="dp">
+
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dateOfBirth">E-mail</label>
+            <div class="input-group">
+              <input id="name" readonly class="form-control" value="{{contatoSelected.email}}" name="dp">
+  
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth">Telefone</label>
+            <div class="input-group">
+              <input id="name" readonly class="form-control" value="{{contatoSelected.telefone}}" name="dp">
+  
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="dateOfBirth">Mensagem</label>
+            <div class="input-group">
+              <textarea rows="5" id="name" readonly class="form-control" name="dp">
+                {{contatoSelected.mensagem}}
+              </textarea>
+  
+            </div>
+          </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fechar</button>
+    </div>
+  </ng-template>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nome do Contato</th>
+        <th scope="col">E-mail</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contato of contatos">
+          <td>{{contato.id}}</td>
+          <td>{{contato.nome}}</td>
+          <td>{{contato.email}}</td>
+          <td>
+              <button class="btn btn-sm btn-info" (click)="openVisMsg(content, contato.id)">
+                  <i class="fa fa-eye"  aria-hidden="true"></i> Visualizar
+                </button>
+                <button class="btn btn-sm btn-danger" (click)="deleteContato(contato.id)">
+                    <i class="fa fa-trash-o" aria-hidden="true"></i> Excluir
+                </button>
+                <button class="btn btn-sm btn-success">
+                    <i class="fa fa-reply" aria-hidden="true"></i> Responder
+                </button>
+          </td>
+          
+        
+      </tr>
+      <mat-paginator></mat-paginator>
+
+    </tbody>
+  </table>

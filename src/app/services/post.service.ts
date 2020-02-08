@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { environment, TOKEN_STORAGE } from '../../environments/environment';
 
 @Injectable({
@@ -20,6 +20,15 @@ export class PostService {
   getPostById(id){
       const url = environment.api + "/post/" + id
       return this.http.get(url)
+  }
+
+  getByTitle(title)
+  {
+    const url = environment.api + "/post/search/title/" +  title;
+
+      
+    
+    return this.http.get(url)
   }
 
   deletePost(id){

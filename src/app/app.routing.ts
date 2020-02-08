@@ -13,6 +13,8 @@ import { NovapublicacaoComponent } from './post/novapublicacao/novapublicacao.co
 import { EditarComponent } from './post/editar/editar.component';
 import { AuthGuard } from './guards/auth.guard';
 import { NotAuthGuard } from './guards/not-auth.guard';
+import { ListacontatosComponent } from './contato/listacontatos/listacontatos.component';
+import { AppTesteComponent } from './testes/app-teste/app-teste.component';
 
 
 export const routes: Routes = [
@@ -32,8 +34,17 @@ export const routes: Routes = [
       title: 'Page 500'
     }
   },
- 
+  {
+    path: 'testes',
+    component: AppTesteComponent,
+   //canActivate: [AuthGuard]
+  },
 
+  {
+    path: 'contatos',
+    component: ListacontatosComponent,
+   //canActivate: [AuthGuard]
+  },
    {
       path: 'publicacoes',
       component: ListapublicacoesComponent,

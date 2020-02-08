@@ -4,7 +4,6 @@ import { TOKEN_STORAGE } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 import { navItems } from './_nav';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-
 @Component({
   // tslint:disable-next-line
   selector: 'body',

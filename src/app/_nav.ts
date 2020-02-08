@@ -14,6 +14,11 @@ export const navItems: INavData[] = [
     name: 'Publicações',
     url: '/publicacoes',
     icon: 'icon-doc',
+  },
+  {
+    name: 'Contatos',
+    url: '/contatos',
+    icon: 'fa fa-address-book',
   }
  
 ];

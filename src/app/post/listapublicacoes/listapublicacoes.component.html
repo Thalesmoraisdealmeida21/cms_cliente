@@ -3,10 +3,24 @@
     <div class="row">
         <div class="col-md-12 col-xs-12">
             <div class=" card">
-                <div class="card-header">
+                <div class="card-header row">
+                    <div class="col-6">
                         <div class="title-header">Publicações
                             <button routerLink="nova"class="btn btn-outline-info btn-sm">Nova Publicação</button>  
-           
+                            <img *ngIf="statusLoading"  src="./../../../assets//animate/loading.svg" alt="">
+                        </div>
+                    </div>
+                      
+
+                        <div class="search form-inline col-6">
+                            <div class="form-group">
+                                <input type="text" name="search" [(ngModel)]="search" class="form-control sm">
+                            
+                               
+                            </div>
+
+                            <button (click)="searchPost()" class="btn btn-info">Buscar Públicação</button>
+                           
                         </div>
                  
                     
@@ -14,8 +28,8 @@
     
                 <div class="card-body">
 
-                    <img *ngIf="statusLoading"  src="./../../../assets//animate/Eclipse-1s-200px.gif" alt="">
-                    <table  class="table table-hover">
+                    
+                    <table  *ngIf="!statusLoading" class="table table-hover">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -44,3 +58,5 @@
     
     </div>
 </div>
+
+<button class="btn btn-success" (click)="loadingGetData()">Recarregar</button>

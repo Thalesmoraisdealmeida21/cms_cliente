@@ -6,5 +6,6 @@ export interface Post {
     imgCapa: String
     updatedAt: Date,
     createdAt: Date,
+    rows: Object
     
 }

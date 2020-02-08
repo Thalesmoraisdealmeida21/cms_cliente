@@ -15,26 +15,50 @@ export class ListapublicacoesComponent implements OnInit {
 
   posts: Post[]
   statusLoading: boolean = true;
+  search: string
+ 
 
   constructor(
     private postService: PostService
   ) {
+ 
     this.loadingGetData();
     PNotifyButtons; // Initiate the module. Important!
     PNotify.defaults.styling = 'bootstrap4'; // Bootstrap version 4
-    this.statusLoading = true;
+ 
    }
 
   ngOnInit() {
-    
+    this.statusLoading = true;
   } 
 
+  searchPost(){
+    this.statusLoading = true;
+    if(this.search.length <= 0){
+      this.search = "none"
+    }
+    this.postService.getByTitle(this.search).subscribe((posts: Post[])=>{
+      this.posts = [];
+      if(this.posts.length <= 0){
+        this.statusLoading = false
+      }
+      this.posts = posts
+      this.search = ""
+  
+    })
+  }
+
   loadingGetData(){
+    this.statusLoading = true;
 
     this.postService.getAllPosts().subscribe((posts: Post[])=>{
-   
+      this.posts = [];
+      if(this.posts.length <= 0){
+        this.statusLoading = false
+      }
       this.posts = posts
-      this.statusLoading = false;
+   
+  
     })
   }
 
