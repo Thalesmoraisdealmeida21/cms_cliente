@@ -1,0 +1,54 @@
+
+
+<div class="container">
+    <div class="row">
+
+                <div class="col-md-4"></div>  
+
+                  <div class="col-md-4">
+                    <div class="card">
+                       <!--img src="https://png.pngtree.com/png-vector/20191017/ourmid/pngtree-justice-scales-lawyer-logo-scales-of-justice-sign-icon-court-of-png-image_1811159.jpg" alt="">
+                     >-->    <h5>Registrar Novo usuário</h5>
+                     <div class="loading">
+                                 
+                    </div>
+                    <mat-spinner class="loading" [ngClass]="loadingStatusClass">
+                       
+                    </mat-spinner>
+
+                        <div class="card-body" [ngClass]="statusFieldsLoading">
+                       
+                            <div [ngClass]="showFields">
+                                <mat-form-field class="fields">
+                                    <mat-label>Nome de Usuário</mat-label>
+                                    <input  name="username" [(ngModel)]="User.username" matInput placeholder="Ex. JoaSilva" value="">
+                                  </mat-form-field>
+    
+                                  <mat-form-field class="fields">
+                                    <mat-label>E-mail</mat-label>
+                                    <input type="email" name="email" [(ngModel)]="User.email" matInput placeholder="Ex. exemplo@mail.com">
+                                  </mat-form-field>
+    
+                                  <mat-form-field class="fields">
+                                    <mat-label>Senha</mat-label>
+                                    <input matInput name="password" [(ngModel)]="User.password" type="password" placeholder="Digite sua senha">
+                                  </mat-form-field>
+                            </div>
+                    
+        
+                            
+                      
+                        <button (click)="saveUser()" mat-raised-button color="primary">Salvar Usuário</button>
+                          
+                
+                                
+            
+                        </div>
+                    </div>
+                </div>  
+
+
+                <div class="col-md-4"></div>  
+          
+    </div>
+</div>

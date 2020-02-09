@@ -7,6 +7,7 @@ import { CKEditorModule } from 'ckeditor4-angular';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import {MatInputModule} from '@angular/material/input';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -21,6 +22,7 @@ import { P404Component } from './views/error/404.component';
 import { P500Component } from './views/error/500.component';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 import { HttpsRequestInterceptor } from './Interceptors/interceptor.module'
 const APP_CONTAINERS = [
@@ -57,6 +59,8 @@ import  { MatMenuModule } from '@angular/material/menu';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+import {MatButtonModule} from '@angular/material/button'
 
 
 
@@ -82,7 +86,10 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatPaginatorModule,
-    NgbModule
+    NgbModule,
+    MatInputModule,
+    MatBadgeModule,
+    MatButtonModule
     
   ],
   declarations: [
@@ -99,6 +106,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
     ListacontatosComponent,
     SimpleTableComponent,
     AppTesteComponent,
+    UserRegisterComponent,
     
    
   ],
