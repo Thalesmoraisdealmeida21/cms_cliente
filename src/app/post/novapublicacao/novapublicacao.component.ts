@@ -6,6 +6,7 @@ import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons';
 import { File } from '../../interfaces/file';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic'
 
 
 @Component({
@@ -16,7 +17,7 @@ import { Router } from '@angular/router';
 export class NovapublicacaoComponent implements OnInit {
 
   constructor(private postService: PostService, private router: Router) { }
-
+  Editor = ClassicEditor;
   post = {
     titulo: "",
     descricao: "",

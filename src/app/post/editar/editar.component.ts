@@ -7,7 +7,7 @@ import { responseapi } from '../../interfaces/responseapi';
 import PNotify from 'pnotify/dist/es/PNotify';
 import { environment } from '../../../environments/environment';
 import { File } from '../../interfaces/file';
-
+import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic' 
 @Component({
   selector: 'app-editar',
   templateUrl: './editar.component.html',
@@ -15,7 +15,7 @@ import { File } from '../../interfaces/file';
 })
 export class EditarComponent implements OnInit {
   idPost
-
+ Editor = ClassicEditor
   constructor(
     private postService: PostService,
     private routeActivate: ActivatedRoute

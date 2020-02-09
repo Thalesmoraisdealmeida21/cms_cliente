@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CKEditorModule } from 'ckeditor4-angular';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
@@ -60,7 +60,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatPaginatorModule} from '@angular/material/paginator'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
-import {MatButtonModule} from '@angular/material/button'
+import {MatButtonModule} from '@angular/material/button';
+import { ResponderContatoComponent } from './contato/responder-contato/responder-contato.component'
 
 
 
@@ -107,6 +108,7 @@ import {MatButtonModule} from '@angular/material/button'
     SimpleTableComponent,
     AppTesteComponent,
     UserRegisterComponent,
+    ResponderContatoComponent,
     
    
   ],

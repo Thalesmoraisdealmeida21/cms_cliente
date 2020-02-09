@@ -20,4 +20,9 @@ export class ContatoService {
     const url = environment.api + "/contato/" + id
     return this.http.get(url);
   }
+
+  deleteContact(id){
+    const url = environment.api + "/contato/" + id
+    return this.http.delete(url);
+  }
 }

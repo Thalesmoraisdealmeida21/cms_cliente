@@ -16,6 +16,7 @@ import { NotAuthGuard } from './guards/not-auth.guard';
 import { ListacontatosComponent } from './contato/listacontatos/listacontatos.component';
 import { AppTesteComponent } from './testes/app-teste/app-teste.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
+import { ResponderContatoComponent } from './contato/responder-contato/responder-contato.component';
 
 
 export const routes: Routes = [
@@ -44,6 +45,11 @@ export const routes: Routes = [
   {
     path: 'contatos',
     component: ListacontatosComponent,
+   //canActivate: [AuthGuard]
+  },
+  {
+    path: 'contatos/responder/:id',
+    component: ResponderContatoComponent,
    //canActivate: [AuthGuard]
   },
   {

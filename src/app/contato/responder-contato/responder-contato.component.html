@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+               
+                <mat-form-field class="inputs"> 
+                    <mat-label>Para</mat-label>
+                    <input name="to" readonly [(ngModel)]="resposta.to" type="text" matInput placeholder="Ex. cliente@email.com">
+                </mat-form-field>
+
+                <mat-form-field class="inputs">
+                    <mat-label>Assunto</mat-label>
+                    <input [(ngModel)]="resposta.subject" type="text" matInput placeholder="Insira o assunto">
+                </mat-form-field>
+
+                <ckeditor [editor]="Editor" [(ngModel)]="resposta.message" name="message" ></ckeditor>
+<br>
+<div class="row">
+    <div class="col-md-9"></div>
+    <div class="col-md-3">
+        <button (click)="resMsg()"class="btn btn-success">Responder E-mail</button>
+    </div>
+</div>
+                
+
+                
+
+                
+            </div>
+        </div>
+      
+
+    </div>
+    </div>
+</div>
