@@ -17,6 +17,8 @@ import { ListacontatosComponent } from './contato/listacontatos/listacontatos.co
 import { AppTesteComponent } from './testes/app-teste/app-teste.component';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import { ResponderContatoComponent } from './contato/responder-contato/responder-contato.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { HomeSettingsComponent } from './settings/home-settings/home-settings.component';
 
 
 export const routes: Routes = [
@@ -39,6 +41,12 @@ export const routes: Routes = [
   {
     path: 'testes',
     component: AppTesteComponent,
+   //canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'configuracoes',
+    component: HomeSettingsComponent,
    //canActivate: [AuthGuard]
   },
 

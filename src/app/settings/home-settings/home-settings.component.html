@@ -1,0 +1,48 @@
+
+
+<div class="container">
+    <div class="row">
+
+        <div class="card">
+            <div class="card-body">
+                <div class="col-md-8">
+     
+                    <h3>Configuração do E-mail</h3>
+                    <div class="configEmail">
+                        
+                        <mat-form-field class="field-form"appearence="legacy">
+                            <mat-label>Host</mat-label>
+                            <input [(ngModel)]="config.host" name="host" matInput c placeholder="Ex. smtp.seuemail.com">
+                        </mat-form-field>
+        
+                        <mat-form-field appearence="legacy" class="field-form"> 
+                            <mat-label>Porta</mat-label>
+                            <input [(ngModel)]="config.port" name="port"  type="number" matInput placeholder="Ex. 587">
+                        </mat-form-field>
+        
+                        <mat-form-field class="field-form" appearence="legacy">
+                            <mat-label>Segurança</mat-label>
+                            <input [(ngModel)]="config.secure" name="secure"  matInput placeholder="Ex. False / True">
+                        </mat-form-field>
+        
+                        <mat-form-field class="field-form" appearence="legacy">
+                            <mat-label>E-mail</mat-label>
+                            <input [(ngModel)]="config.user" name="user"  matInput  placeholder="Ex. meuemail@mail.com">
+                        </mat-form-field>
+        
+                        <mat-form-field class="field-form" appearence="legacy">
+                            <mat-label>Senha</mat-label>
+                            <input type="password" [(ngModel)]="config.password" name="password"  matInput  placeholder="Digite a senha do se e-mail">
+                        </mat-form-field>
+   
+             
+                        <button (click)="saveDataEmail()" class="btn btn-primary"> Salvar Configuração</button>
+                    </div>
+            </div>
+        </div>
+
+       
+        </div>
+
+    </div>
+</div>

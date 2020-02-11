@@ -61,7 +61,9 @@ import {MatPaginatorModule} from '@angular/material/paginator'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { UserRegisterComponent } from './user/user-register/user-register.component';
 import {MatButtonModule} from '@angular/material/button';
-import { ResponderContatoComponent } from './contato/responder-contato/responder-contato.component'
+import { ResponderContatoComponent } from './contato/responder-contato/responder-contato.component';
+import { ProfileComponent } from './user/profile/profile.component';
+import { HomeSettingsComponent } from './settings/home-settings/home-settings.component'
 
 
 
@@ -109,6 +111,8 @@ import { ResponderContatoComponent } from './contato/responder-contato/responder
     AppTesteComponent,
     UserRegisterComponent,
     ResponderContatoComponent,
+    ProfileComponent,
+    HomeSettingsComponent,
     
    
   ],

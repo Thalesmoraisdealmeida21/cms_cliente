@@ -15,9 +15,13 @@ export class EmailService {
   sendMail(email){
     const url = environment.api + "/sendmail"
     return this.http.post(url, email)
-    
+  }
+
+  saveConfigEmail(config){
+    const url = environment.api + "/email/setconfig"
 
 
+    return this.http.post(url, config);
 
   }
 }
