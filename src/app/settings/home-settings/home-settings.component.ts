@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EmailService } from '../../services/email.service';
 import PNotify from 'pnotify/dist/es/PNotify';
+import { ActivatedRoute } from '@angular/router';
+import { ConfigEmail } from '../../interfaces/config-email';
 
 @Component({
   selector: 'app-home-settings',
@@ -9,23 +11,29 @@ import PNotify from 'pnotify/dist/es/PNotify';
 })
 export class HomeSettingsComponent implements OnInit {
 
+  config: ConfigEmail
+
   constructor(
-    private EmailService: EmailService
-  ) { }
-
-  config = {
-      host: "",
-      port: "",
-      secure: "",
-      user: "",
-      password: ""
+    private emailService: EmailService
+  ) { 
+  
+    this.existsConfiguration();
   }
 
-  ngOnInit(): void {
+
+
+
+
+
+  ngOnInit() {
+
+
   }
+
+
 
   saveDataEmail(){
-    this.EmailService.saveConfigEmail(this.config).subscribe((configRet)=>{
+    this.emailService.setConfigEmail(this.config).subscribe((configRet)=>{
       if(configRet){
           PNotify.success({
             title: "Sistema",
@@ -41,6 +49,29 @@ export class HomeSettingsComponent implements OnInit {
         })
       }
     })
+  }
+
+
+
+ 
+
+  existsConfiguration(): Boolean {
+
+
+       this.emailService.getConfigEmail().subscribe((configuration: ConfigEmail)=>{
+         if(configuration){
+              this.config = configuration;
+         } else {
+              this.emailService.initConfigEmail(this.config).subscribe((configInit: ConfigEmail)=> {
+                this.config = configInit;
+                console.log("inicializou configuração do e-mail")
+              })
+
+         }
+           
+        })
+
+        return true;
   }
 
 }

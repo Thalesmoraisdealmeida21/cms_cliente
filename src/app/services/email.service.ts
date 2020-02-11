@@ -17,11 +17,20 @@ export class EmailService {
     return this.http.post(url, email)
   }
 
-  saveConfigEmail(config){
-    const url = environment.api + "/email/setconfig"
-
-
+  initConfigEmail(config){
+    const url = environment.api + "/email/initconfig"
     return this.http.post(url, config);
+  }
 
+  setConfigEmail(config){
+    const url = environment.api + "/email/setconfig"
+    console.log(config)
+    return this.http.post(url, config);
+  }
+
+
+  getConfigEmail(){
+    const url = environment.api + "/email/getconfig"
+    return this.http.get(url);
   }
 }
