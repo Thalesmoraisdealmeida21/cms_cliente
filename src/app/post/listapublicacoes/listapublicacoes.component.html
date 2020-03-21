@@ -6,7 +6,7 @@
                 <div class="card-header row">
                     <div class="col-6">
                         <div class="title-header">Publicações
-                            <button routerLink="nova"class="btn btn-outline-info btn-sm">Nova Publicação</button>  
+                            <button routerLink="./../nova"class="btn btn-outline-info btn-sm">Nova Publicação</button>  
                             <img *ngIf="statusLoading"  src="./../../../assets//animate/loading.svg" alt="">
                         </div>
                     </div>
@@ -48,6 +48,13 @@
                                     </td>
                                 </tr>
                         </tbody>
+                        <nav aria-label="Page navigation example">
+                            <ul class="pagination" >
+                           
+                              <li class="page-item" *ngFor="let page of pages"><a class="page-link" [routerLink]="'/publicacoes/' + [page]">{{page}}</a></li>
+                    
+                            </ul>
+                          </nav>
                       </table>
                 </div>
     
@@ -58,5 +65,3 @@
     
     </div>
 </div>
-
-<button class="btn btn-success" (click)="loadingGetData()">Recarregar</button>

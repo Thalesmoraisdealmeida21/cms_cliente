@@ -21,4 +21,4 @@ API do projeto: https://github.com/Thalesmoraisdealmeida21/cms_api.git
         - Visualização de contatos
         - Opção de responder o e-mail contato
         
-- Autenticação via JWT
+- Autenticação  JWT

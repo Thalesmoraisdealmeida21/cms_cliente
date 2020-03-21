@@ -58,7 +58,7 @@ export class ResponderContatoComponent implements OnInit {
         if(resposta){
           PNotify.success({
             title: "Sistema",
-            Text: "E-mail respondido com sucesso"
+            text: "E-mail respondido com sucesso"
           })
         }
 

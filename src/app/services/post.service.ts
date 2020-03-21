@@ -12,8 +12,8 @@ export class PostService {
   ) { }
 
 
-  getAllPosts(){
-      const url = environment.api + '/posts'
+  getAllPosts(page){
+      const url = environment.api + '/posts/' + page
       return this.http.get(url)
   }
 
@@ -29,6 +29,12 @@ export class PostService {
       
     
     return this.http.get(url)
+  }
+
+
+  getAllandCount(){
+    const url = environment.api + "/posts/count"
+    return this.http.get(url);
   }
 
   deletePost(id){

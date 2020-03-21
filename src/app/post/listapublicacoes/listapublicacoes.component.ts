@@ -4,6 +4,8 @@ import { Post } from '../../interfaces/post';
 import { responseapi } from '../../interfaces/responseapi';
 import PNotify from 'pnotify/dist/es/PNotify';
 import PNotifyButtons from 'pnotify/dist/es/PNotifyButtons';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AllPages } from '../../interfaces/all-pages';
 
 
 @Component({
@@ -16,10 +18,13 @@ export class ListapublicacoesComponent implements OnInit {
   posts: Post[]
   statusLoading: boolean = true;
   search: string
+  pages: number[] = [];
  
 
   constructor(
-    private postService: PostService
+    private postService: PostService,
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) {
  
     this.loadingGetData();
@@ -49,18 +54,36 @@ export class ListapublicacoesComponent implements OnInit {
   }
 
   loadingGetData(){
+    this.posts = []
+    this.countNumberPages();
     this.statusLoading = true;
-
-    this.postService.getAllPosts().subscribe((posts: Post[])=>{
-      this.posts = [];
-      if(this.posts.length <= 0){
-        this.statusLoading = false
-      }
-      this.posts = posts
+    this.activeRoute.params.subscribe((params)=>{
+     
+      this.postService.getAllPosts(params['page']).subscribe((posts: Post[])=>{
+        this.posts = [];
+        if(this.posts.length <= 0){
+          this.statusLoading = false
+        }
+        this.posts = posts
    
-  
+    
+      })
     })
+   
   }
+
+countNumberPages(){
+  this.postService.getAllandCount().subscribe((allPages: AllPages)=>{
+
+    let nPAges = allPages.count / 5;
+
+    for(let i=0; i < nPAges; i++){
+      this.pages.push(i+1);
+    }
+
+    console.log(this.pages)
+  })
+}
 
   deletePost(id){
     this.postService.deletePost(id).subscribe((resposta)=>{
@@ -76,13 +99,12 @@ export class ListapublicacoesComponent implements OnInit {
               this.loadingGetData();
             } 
               if(resposta.status == 401){
-            console.log("sem autenticação")
+             console.log("sem autenticação")
              
               }
-            
-            
     })
   }
+
 
 
 

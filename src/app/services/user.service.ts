@@ -28,6 +28,7 @@ export class UserService {
 
   createUser(user){
       const url = environment.api + "/user"
+      console.log(user)
       return this.http.post(url, user);
   }
 }

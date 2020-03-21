@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+
+
+        <div class="card col-12">
+            <div class="row">
+                <div class="col-8">
+
+
+                    <div class="form-group">
+                        <input type="text" name="areaDescricao" [(ngModel)]="area.nome" placeholder="Nome da área" class="form-control">
+                    </div>
+
+                   
+    
+                    <ckeditor [editor]="Editor" [(ngModel)]="area.descricao" ></ckeditor>
+                
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <input (change)="uploadImage($event)" type="file" [(ngModel)]="area.icone" class="form-control" name="" id="">
+                    </div>
+                    <br />
+
+                    <img src="{{area.icone}}" alt="" class="img-icone">
+                  
+                </div>
+            </div>
+           
+         
+
+          
+                <br />
+                <button (click)="update(area.id)" class="btn btn-success">Salvar</button>
+                <br/>
+
+        
+
+           
+
+        </div>
+    </div>
+</div>

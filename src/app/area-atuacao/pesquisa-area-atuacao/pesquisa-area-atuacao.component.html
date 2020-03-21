@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="row">
+
+
+
+     
+
+
+        <div class="card col-md-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <td>ID</td>
+                        <td>Nome</td>
+                        <td>Opções</td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let area of areas">
+                        <td>{{area.id}}</td>
+
+                        <td>{{area.nome}}</td>
+
+                        <td>
+                          
+                            <button [routerLink]="['/area-atuacao/editar/'] + area.id" class="btn btn-sm btn-warning">Editar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+               
+
+    </div>
+</div>

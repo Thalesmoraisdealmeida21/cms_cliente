@@ -19,6 +19,8 @@ import { UserRegisterComponent } from './user/user-register/user-register.compon
 import { ResponderContatoComponent } from './contato/responder-contato/responder-contato.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { HomeSettingsComponent } from './settings/home-settings/home-settings.component';
+import { PesquisaAreaAtuacaoComponent } from './area-atuacao/pesquisa-area-atuacao/pesquisa-area-atuacao.component';
+import { VisualizaAreaAtuacaoComponent } from './area-atuacao/visualiza-area-atuacao/visualiza-area-atuacao.component';
 
 
 export const routes: Routes = [
@@ -65,18 +67,31 @@ export const routes: Routes = [
     component: UserRegisterComponent,
    //canActivate: [AuthGuard]
   },
+
+  {
+    path: 'publicacoes/nova', 
+    component: NovapublicacaoComponent,
+   
+},
    {
-      path: 'publicacoes',
+      path: 'publicacoes/:page',
       component: ListapublicacoesComponent,
       canActivate: [AuthGuard]
    },
     
 
+
   {
-      path: 'publicacoes/nova', 
-      component: NovapublicacaoComponent,
-      canActivate: [AuthGuard]
-  },
+    path: 'area-atuacao/pesquisa', 
+    component: PesquisaAreaAtuacaoComponent,
+    canActivate: [AuthGuard]
+},
+{
+  path: 'area-atuacao/editar/:id', 
+  component: VisualizaAreaAtuacaoComponent,
+  canActivate: [AuthGuard]
+},
+
 
    {
        path: 'publicacoes/editar/:idPost', 
